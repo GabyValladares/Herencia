@@ -6,6 +6,7 @@ package vista;
 
 import modelo.Administrativo;
 import modelo.Docente;
+import modelo.Estudiante;
 import modelo.Persona;
 
 /**
@@ -26,6 +27,9 @@ public class Main {
         //objeto administrativo 
         Administrativo a=new Administrativo(2, "secretaria", "software", 1, "Paulina", "Jacome", "1234567891", "IBARRA", "p.jacome@ist17dejulio.edu.ec", "femenino", "11/06/1992", 987919912);
         System.out.println(a.imprimir());
+        
+        Persona p=new Estudiante();
+        
                 
                 
     }
