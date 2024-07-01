@@ -83,10 +83,34 @@ public class Cuenta {
         if(valorRetirar>getSaldo()){
             System.out.println("No cuenta con los fondos suficientes"
                     + " para realizar el retiro");
-        }else{        
+        }else{ 
+            System.out.println("Su saldo era:"+getSaldo());
             setSaldo(getSaldo()-valorRetirar);
             setNumeroRetiros(getNumeroRetiros()+1);
+            System.out.println("Después del retiro su saldo es:"+getSaldo());
         }
     
+    }
+    
+    public double calculoInteres(){
+        double valorRendimiento=0.00;
+        valorRendimiento=(getSaldo()*((getTasaAnual()/100)/12));
+        //setSaldo(valorRendimiento+getSaldo());
+        return valorRendimiento;
+        
+    }
+    
+    public void extractoMensual(){
+        double interes=this.calculoInteres();
+        setSaldo(getSaldo() -getComisionMensual()+interes);
+        System.out.println("------------Estado de Cuenta-------------\n"+
+                "Saldo Actual:"+getSaldo()+"\n"+
+                "Comisión Mensual:"+getComisionMensual()+"\n"+
+                "Interes Ganado en el Mes:"+interes);
+        //los métodos de retorno almacenan su valor en memoria ram
+        //al usar el puntero this estoy haciendo referencia al resultdo
+        //previamente almacenado.
+//        setSaldo(getSaldo() -getComisionMensual()+this.calculoInteres());
+        
     }
 }
