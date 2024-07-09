@@ -29,14 +29,16 @@ public class Docente extends Persona {
     
     //CONSTRUCTOR SUPERCLASE
 
-    public Docente(int idDocente, String especialidad, String titulo, String registroSenescyt, String escalaSalarial, int idPersona, String nombres, String apellidos, String cedula, String direccion, String correoElectronico, String sexo, String fechaNacimiento, int telefono) {
-        super(idPersona, nombres, apellidos, cedula, direccion, correoElectronico, sexo, fechaNacimiento, telefono);
+    public Docente(int idDocente, String especialidad, String titulo, String registroSenescyt, String escalaSalarial, int idPersona, String nombres, String apellidos, String cedula, String direccion, String correoElectronico, String sexo, String fechaNacimiento, int telefono, String usuario, String clave) {
+        super(idPersona, nombres, apellidos, cedula, direccion, correoElectronico, sexo, fechaNacimiento, telefono, usuario, clave);
         this.idDocente = idDocente;
         this.especialidad = especialidad;
         this.titulo = titulo;
         this.registroSenescyt = registroSenescyt;
         this.escalaSalarial = escalaSalarial;
     }
+
+   
 
   
 

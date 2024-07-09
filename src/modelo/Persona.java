@@ -20,13 +20,15 @@ public class Persona {
     private String sexo;
     private String fechaNacimiento;
     private int telefono;
+    private String usuario;
+    private String clave;
     
     //2.MÉTODOS CONSTRUCTORES 
 
     public Persona() {
     }
 
-    public Persona(int idPersona, String nombres, String apellidos, String cedula, String direccion, String correoElectronico, String sexo, String fechaNacimiento, int telefono) {
+    public Persona(int idPersona, String nombres, String apellidos, String cedula, String direccion, String correoElectronico, String sexo, String fechaNacimiento, int telefono, String usuario, String clave) {
         this.idPersona = idPersona;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -36,9 +38,11 @@ public class Persona {
         this.sexo = sexo;
         this.fechaNacimiento = fechaNacimiento;
         this.telefono = telefono;
+        this.usuario = usuario;
+        this.clave = clave;
     }
 
-   
+      
 
     //3. ENCAPSULAMIENTO
     public int getIdPersona() {
@@ -114,6 +118,22 @@ public class Persona {
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
     
     
 
@@ -125,6 +145,8 @@ public class Persona {
                 + "Apellidos:" + getApellidos() + "\n"
                 + "Cédula:" + getCedula() + "\n"
                 + "Dirección:" + getDireccion() + "\n"
+                + "Usuario:" + getUsuario()+ "\n"
+                + "Clave:" + "***************"+ "\n"
                 + "Correo Electrónico:" + getCorreoElectronico()+ "\n"
                 +"Fecha Nacimiento:"+getFechaNacimiento()+ "\n"
                 +"Sexo:"+getSexo()+ "\n"

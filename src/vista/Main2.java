@@ -4,55 +4,20 @@
  */
 package vista;
 
-import controlador.ConexionBDD;
+import controlador.PersonaControlador;
 import java.util.ArrayList;
 import java.util.Scanner;
-import modelo.Administrativo;
 import modelo.CuentaAhorros;
 import modelo.CuentaCorriente;
-import modelo.Docente;
-import modelo.Estudiante;
 import modelo.Persona;
 
 /**
  *
  * @author Usuario
  */
-public class Main {
+public class Main2 {
 
     public static void main(String[] args) {
-//        Persona x=new Persona();
-//        Docente d=new Docente() ;
-//        d.setIdPersona(1);
-//        d.setNombres("Gabriela");
-//        d.setApellidos("Valladares");
-//        d.setTitulo("Ingeniera en Sistemas Computacionales");
-//        d.setEspecialidad("Backend");
-//        d.setRegistroSenescyt("001-006-2016RX");
-//        //System.out.println(d.imprimir());
-//        //objeto administrativo 
-//        Administrativo a=new Administrativo(2, "secretaria", "software", 1, "Paulina", "Jacome", "1234567891", "IBARRA", "p.jacome@ist17dejulio.edu.ec", "femenino", "11/06/1992", 987919912);
-//        System.out.println(a.imprimir());
-//        
-//        Persona p=new Estudiante();
-
-//        CuentaAhorros ca1=new CuentaAhorros(true, 18000, 0, 0, 12, 1.35);
-//        for (int i = 0; i < 5; i++) {
-//             ca1.retirar(1800);
-//        }
-//       ca1.calcularExtractoMensual();
-//       
-//       CuentaCorriente cc1=new CuentaCorriente(0, 12000, 0, 0, 0, 0);
-//        cc1.imprimir();
-//        System.out.println("RETIRANDO");
-//        cc1.retiroCorriente(13000);
-//        cc1.extractoMensual();
-//        System.out.println("DEPOSITANDO");
-//        cc1.depositoCorriente(2500);
-//        cc1.imprimir();
-//        System.out.println("RETIRANDO!!!");
-//        cc1.retiroCorriente(500);
-//        cc1.imprimir();
         ArrayList<CuentaAhorros> listaCuentaAhorro = new ArrayList<>();
         ArrayList<CuentaCorriente> listaCuentaCorriente = new ArrayList<>();
         Scanner es = new Scanner(System.in);
@@ -95,9 +60,41 @@ public class Main {
                 }
             } else if (op1 == 0) {
                 i = 0;
+            }else if(op1==6){
+                System.out.println("Elija la transacción a realizar\n"+
+                        "1.Crear Persona");
+                int mp=es.nextInt();
+                if(mp==1){
+                    System.out.println("Ingrese los siguientes datos informativos");
+                    //MODELO
+                    Persona p=new Persona();
+                    System.out.println("Ingrese su Nombre:");
+                    p.setNombres(es.next());
+                    System.out.println("Ingrese su Apellidos:");
+                    p.setApellidos(es.next());
+                    System.out.println("Ingrese su número de cédula:");
+                    p.setCedula(es.next());
+                    System.out.println("Ingrese un Usuario:");
+                    p.setUsuario(es.next());
+                    System.out.println("Ingrese una Clave:");
+                    p.setClave(es.next());
+                    System.out.println("Ingrese una Dirección:");
+                    p.setDireccion(es.next());
+                    System.out.println("Ingrese su Correo Electrónico:");
+                    p.setCorreoElectronico(es.next());
+                    System.out.println("Ingrese el sexo:");
+                    p.setSexo(es.next());
+                    System.out.println("Ingrese su Fecha de Nacimiento:");
+                    p.setFechaNacimiento(es.next());
+                    System.out.println("Ingrese un número Telefónico:");
+                    p.setTelefono(es.nextInt());
+                    //CONTROLADOR
+                    PersonaControlador pc=new PersonaControlador();
+                    pc.crearPersona(p);
+                }
+            
             }
 
         } while (i == 1);
-
     }
 }
