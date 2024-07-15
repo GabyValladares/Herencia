@@ -22,7 +22,7 @@ public class PersonaControlador {
     ConexionBDD conexion = new ConexionBDD();
     Connection connection = (Connection) conexion.conectar();
     PreparedStatement ejecutar;
-    ResultSet resultado;
+    ResultSet resultado;//CONSULTAMOS O LEEMOS LA BDD
 
     //INSERTAR FILAS EN UNA TABLA
     public void crearPersona(Persona p) {
@@ -31,7 +31,7 @@ public class PersonaControlador {
             String consultaSQL = "INSERT INTO persona(nombres,apellidos,cedula,usuario,clave,direccion,correoElectronico,sexo,fechaNacimiento,telefono)VALUES ('" + p.getNombres() + "','" + p.getApellidos() + "','" + p.getCedula() + "','" + p.getUsuario() + "','" + p.getClave() + "','" + p.getDireccion() + "','" + p.getCorreoElectronico() + "','" + p.getSexo() + "','" + p.getFechaNacimiento() + "'," + p.getTelefono() + ");";
             ejecutar = (PreparedStatement) connection.prepareCall(consultaSQL);
             //dar clic en el play =>ejecutar la consulta
-            int res = ejecutar.executeUpdate();
+            int res = ejecutar.executeUpdate();//INT CUANDO ESCRIBO INSERTO LA BDD
             if (res > 0) {
                 System.out.println("La persona ha sido creada con éxito");
                 ejecutar.close();
@@ -45,5 +45,24 @@ public class PersonaControlador {
             //ejecutando
             System.out.println("ERROR:"+e);
         }
+    }
+    
+    
+    public int buscarIdPersona(String cedula){
+        try {
+            String consultaSQL="SELECT idpersona FROM persona WHERE cedula='"+cedula+"';";
+            ejecutar=(PreparedStatement)connection.prepareCall(consultaSQL);
+            resultado=ejecutar.executeQuery();
+            if(resultado.next()){
+                int idPersona=resultado.getInt("idpersona");
+                return idPersona;
+            }else{
+                System.out.println("Ingrese una cédula válida");
+            }
+        } catch (Exception e) {
+            System.out.println("Comuníquese con el administrador"+e);
+        }
+        return 0;
+    
     }
 }
