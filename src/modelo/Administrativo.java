@@ -13,6 +13,7 @@ public class Administrativo extends Persona {
     private int idAdministrativo;
     private String cargo;
     private String area;
+    
 
     public Administrativo() {
     }
