@@ -15,17 +15,21 @@ public class Docente extends Persona {
     private String titulo;
     private String registroSenescyt;
     private String escalaSalarial;
+    private int idPersona;
     //2.-CONSTRUCTORES
     public Docente() {
     }
 
-    public Docente(int idDocente, String especialidad, String titulo, String registroSenescyt, String escalaSalarial) {
+    public Docente(int idDocente, String especialidad, String titulo, String registroSenescyt, String escalaSalarial, int idPersona) {
         this.idDocente = idDocente;
         this.especialidad = especialidad;
         this.titulo = titulo;
         this.registroSenescyt = registroSenescyt;
         this.escalaSalarial = escalaSalarial;
+        this.idPersona = idPersona;
     }
+
+
     
     //CONSTRUCTOR SUPERCLASE
 
@@ -36,11 +40,8 @@ public class Docente extends Persona {
         this.titulo = titulo;
         this.registroSenescyt = registroSenescyt;
         this.escalaSalarial = escalaSalarial;
+        this.idPersona = idPersona;
     }
-
-   
-
-  
 
     public int getIdDocente() {
         return idDocente;
@@ -81,6 +82,15 @@ public class Docente extends Persona {
     public void setEscalaSalarial(String escalaSalarial) {
         this.escalaSalarial = escalaSalarial;
     }
+
+    public int getIdPersona() {
+        return idPersona;
+    }
+
+    public void setIdPersona(int idPersona) {
+        this.idPersona = idPersona;
+    }
+    
     
     public String imprimir() {
         return "-------DATOS PERSONA-----------\n"
